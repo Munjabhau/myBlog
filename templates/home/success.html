@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container my-3 mt-4" style="max-width: 400px;">
+    <div class="card">
+        <div class="card-header text-center p-3 mb-2 bg-info text-white">
+        </div>
+            <div class="card-body">
+                <h3 class="card-title text-center">Your mail is verified</h3>
+                <div class="card-text text-center">
+                    Please login
+                </div>
+                <div class="text-center">
+                    <a class="btn btn-primary" href="{% url 'login_attempt' %}">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container my-3" style="max-width: 600px;">
+    <div class="card">
+        <div class="card-header text-center p-3 mb-2 bg-info text-white">
+            <h3>Create Account</h3>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" class="form-control form-control-sm" id="username" required/>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" name="email" class="form-control form-control-sm" id="email"
+                           aria-describedby="emailHelp" required/>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control form-control-sm" id="password" required/>
+                </div>
+                <div class="form-group my-2">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" name="confirmPassword" class="form-control form-control-sm"
+                           id="confirmPassword" required/>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block my-2">Sign in</button>
+
+                <div class="sign-up">
+                    Already have an account? <a href="{% url 'login_attempt' %}">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

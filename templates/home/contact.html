@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block contactactive %} active {% endblock contactactive %}
+{% block body %}
+<div class="container my-3" style="max-width: 900px;">
+    <div class="card">
+        <div class="card-header text-center p-3 mb-2 bg-info text-white">
+            <h3>Contact</h3>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/contact/">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="form-control form-control-sm" id="name"
+                           placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">EmailId</label>
+                    <input type="email" name="email" class="form-control form-control-sm" id="email"
+                           placeholder="Enter your EmailId">
+                </div>
+                <div class="form-group my-2">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" rows="4" class="form-control form-control-sm"
+                              placeholder="Enter your message"></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

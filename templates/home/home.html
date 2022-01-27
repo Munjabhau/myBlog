@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block homeactive %} active {% endblock homeactive %}
+{% block body %}
+<div class="container my-2 mt-4" style="max-width: 2000px;">
+    <div class="card text-center" style="background-color:lightblue;">
+        <div class="card-header p-3 mb-2 bg-info text-white">
+            <h4 class="dr b ds dt du dv dw">My Blog</h4>
+        </div>
+        <div class="row my-5">
+            <div class="col-lg-12">
+                <div class="card-body">
+                    <h4 class="dr b ds dt du dv dw">A blog is a place where anyone can express their thoughts and read
+                        thoughts written by others.</h4>
+
+                    <a href="blog/addpost" class="btn btn-primary my-2" style="float:left;">Create Blog</a>
+                </div>
+            </div>
+
+        </div>
+        <hr>
+        <div class="row my-2 mx-2 mt-4">
+            <div class="col-lg-4 my-5">
+                <div class="card" style="max-width: 400px;">
+                    <img src="{% static 'img/blog1.jpeg' %}" class="card-img-top" alt="...">
+                </div>
+            </div>
+
+            <div class="col-lg-4 my-5">
+                <div class="card" style="max-width: 400px;">
+                    <img src="{% static 'img/blog2.jpg' %}" class="card-img-top" alt="...">
+                </div>
+            </div>
+
+            <div class="col-lg-4 my-5 mt-4">
+                <div class="card" style="max-width: 400px;">
+                    <img src="{% static 'img/blog3.jpg' %}" class="card-img-top" alt="...">
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block dashboardactive %} active {% endblock dashboardactive %}
+{% block blogactive %} active {% endblock blogactive %}
+{% block body %}
+<div class="container my-3 mt-4" style="max-width: 1500px;">
+    <div class="card">
+        <div class="card-header text-center p-3 mb-2 bg-info text-white">
+            <h3><p class="fs-3">{{request.user}} Dashboard</p></h3>
+        </div>
+        <div class="card-body">
+            <a href="{% url 'addpost' %}" class="btn btn-success">Add Post</a>
+            <h4 class="text-center alert alert-info mt-3">Show Post Information</h4>
+            {% if posts %}
+            <table class="table table-hover bg-white">
+                <thead>
+                <tr class="text-center">
+                    <th scope="col" style="width:2%">ID</th>
+                    <th scope="col" style="width:28%">Title</th>
+                    <th scope="col" style="width:55%">Description</th>
+                    <th scope="col" style="width:15%">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for post in posts %}
+                <tr>
+                    <th scope="row">{{post.sno}}</th>
+                    <td align="center">{{post.title|safe}}</td>
+                    <td align="center">{{post.content|safe|truncatechars:500}}</td>
+                    <td class="text-center">
+                        <a href="{% url 'updatepost' post.sno %}" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="{% url 'deletepost' post.sno %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <h4 class="text-center alert alert-warning">No Records</h4>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
